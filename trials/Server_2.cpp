@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyFirstSteps.cpp                                   :+:      :+:    :+:   */
+/*   Server_2.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lignigno <lignign@student.21-school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 18:02:27 by lignigno          #+#    #+#             */
-/*   Updated: 2021/08/22 00:25:43 by lignigno         ###   ########.fr       */
+/*   Updated: 2021/08/28 15:52:28 by lignigno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "header.hpp"
+#include "../header.hpp"
 
 int	InitialSetup(void)
 {
@@ -83,7 +83,9 @@ int main(void)
 			close(SocketFD);
 			exit(EXIT_FAILURE);
 		}
+
 		std::cout << CountFD << "\n";
+
 		for (int i = 0; i < FD_SETSIZE; i++)
 		{
 			if (FD_ISSET(i, &RSockets))
@@ -124,6 +126,7 @@ int main(void)
 				}
 			}
 		}
+		// return 0;
 	}
 	return 0;
 }

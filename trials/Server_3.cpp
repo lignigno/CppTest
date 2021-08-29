@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   I_and_select.cpp                                   :+:      :+:    :+:   */
+/*   Server_3.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lignigno <lignign@student.21-school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 16:26:16 by lignigno          #+#    #+#             */
-/*   Updated: 2021/08/22 23:48:32 by lignigno         ###   ########.fr       */
+/*   Updated: 2021/08/30 03:55:14 by lignigno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int main(int argc, char const *argv[])
 					std::cout << CountConnects << " " << flag << '\n';
 					fds[CountConnects].fd = accept(fds[i].fd, NULL, NULL);
 					std::cout << COL_R << "NEW CONNECT" << US << '\n';
-					fds[CountConnects].events = POLLIN | POLLOUT;
+					fds[CountConnects].events = POLLIN;
 					fds[CountConnects].revents = 0;
 					++CountConnects;
 				}
@@ -132,7 +132,7 @@ int main(int argc, char const *argv[])
 					if (!readed)
 					{
 						write(fds[i].fd, "end", 3);
-						write(1, "end\n", 3);
+						write(1, "end\n", 4);
 						fds[i].fd = -1;
 						--CountConnects;
 						continue ;

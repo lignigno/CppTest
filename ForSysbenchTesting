@@ -1,0 +1,22 @@
+sudo sysbench \
+--db-driver=mysql \
+--mysql-user=sbtest \
+--mysql-db=sbtest \
+--mysql-host=127.0.0.1 \
+--mysql-port=3306 \
+--tables=16 \
+--table-size=10000 \
+/usr/share/sysbench/oltp_read_write.lua prepare
+
+> SysbenchResult sudo sysbench \
+--db-driver=mysql \
+--mysql-user=sbtest \
+--mysql-db=sbtest \
+--mysql-host=127.0.0.1 \
+--mysql-port=3306 \
+--tables=16 \
+--table-size=10000 \
+--threads=30 \
+--time=60 \
+--report-interval=1 \
+/usr/share/sysbench/oltp_read_write.lua run
